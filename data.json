@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "type": "img",
+        "category": "modern",
+        "src": "assets/img_1.png",
+        "caption": "Cavallino en la Costa Amalfitana",
+        "date": "Mayo 2026"
+    },
+    {
+        "id": 2,
+        "type": "img",
+        "category": "modern",
+        "src": "assets/img_2.png",
+        "caption": "Hypercar de Neón en Neo-Tokyo",
+        "date": "Mayo 2026"
+    },
+    {
+        "id": 3,
+        "type": "img",
+        "category": "classic",
+        "src": "assets/img_3.png",
+        "caption": "Elegancia Británica en la Mansión",
+        "date": "Mayo 2026"
+    },
+    {
+        "id": 4,
+        "type": "img",
+        "category": "classic",
+        "src": "assets/img_4.png",
+        "caption": "Muscle Car en Diner de Ruta 66",
+        "date": "Mayo 2026"
+    },
+    {
+        "id": 5,
+        "type": "img",
+        "category": "modern",
+        "src": "assets/img_5.png",
+        "caption": "Todoterreno en el Desierto Dorado",
+        "date": "Mayo 2026"
+    },
+    {
+        "id": 6,
+        "type": "img",
+        "category": "track",
+        "src": "assets/img_6.png",
+        "caption": "Porsche de Competición al Límite",
+        "date": "Mayo 2026"
+    },
+    {
+        "id": 7,
+        "type": "img",
+        "category": "modern",
+        "src": "assets/img_7.png",
+        "caption": "Diseño Futurista en Showroom",
+        "date": "Mayo 2026"
+    }
+]

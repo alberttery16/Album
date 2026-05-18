@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garage d'Elite - Álbum de Superdeportivos</title>
+    <meta name="description" content="Un álbum digital premium con los coches más exclusivos, veloces y espectaculares del mundo.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    
+    <!-- GSAP for Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="loader" class="loader">
+        <div class="loader-content">
+            <h1 class="logo-text">EL ÁLBUM</h1>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo">🏎️ Garage d'Elite</div>
+            <div class="social-links">
+                <i data-lucide="instagram"></i>
+                <i data-lucide="heart" class="heart-icon"></i>
+            </div>
+        </nav>
+        <section class="hero">
+            <h1 class="reveal-text">Colección de <span class="accent">Superdeportivos</span></h1>
+        </section>
+    </header>
+
+    <main>
+        <div class="filter-bar">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="modern">Deportivos</button>
+            <button class="filter-btn" data-filter="classic">Clásicos</button>
+            <button class="filter-btn" data-filter="track">Competición</button>
+        </div>
+
+        <div id="gallery" class="gallery-grid">
+            <!-- Items will be injected by JavaScript -->
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>PÁGINA REALIZADA POR ALBERTTERY16. TODOS LOS DERECHOS RESERVADOS.</p>
+        <div id="qr-container" class="qr-section">
+            <p>Escanea para compartir</p>
+            <div class="qr-placeholder">
+                <i data-lucide="qr-code" size="48"></i>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <div class="lightbox-content">
+            <div id="lightbox-media"></div>
+            <p id="lightbox-caption"></p>
+        </div>
+    </div>
+
+    <!-- Password Overlay -->
+    <div id="password-overlay" class="password-overlay">
+        <div class="password-card">
+            <i data-lucide="lock" size="48"></i>
+            <h2>Álbum Privado</h2>
+            <p>Introduce el PIN para entrar</p>
+            <input type="password" id="pin-input" placeholder="****" maxlength="4">
+            <p id="pin-error" class="error-msg">PIN incorrecto, prueba con 1234</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
