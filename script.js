@@ -229,5 +229,106 @@ if (pinInput) {
     });
 }
 
+// Share Modal Logic
+const shareModal = document.getElementById('share-modal');
+const qrTrigger = document.getElementById('qr-footer-trigger');
+const closeShareBtn = document.getElementById('close-share');
+const btnCopyLink = document.getElementById('btn-copy-link');
+
+function openShareModal() {
+    shareModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    
+    gsap.fromTo('.share-card', 
+        { scale: 0.8, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.7)" }
+    );
+}
+
+function closeShareModal() {
+    gsap.to('.share-card', {
+        scale: 0.8,
+        opacity: 0,
+        duration: 0.3,
+        ease: "power2.in",
+        onComplete: () => {
+            shareModal.classList.remove('active');
+            if (!lightbox.classList.contains('active')) {
+                document.body.style.overflow = 'auto';
+            }
+        }
+    });
+}
+
+if (qrTrigger) qrTrigger.addEventListener('click', openShareModal);
+if (closeShareBtn) closeShareBtn.addEventListener('click', closeShareModal);
+
+shareModal.addEventListener('click', (e) => {
+    if (e.target === shareModal) closeShareModal();
+});
+
+// Close modal on Escape key
+window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && shareModal.classList.contains('active')) {
+        closeShareModal();
+    }
+});
+
+// Copy Link to Clipboard with Premium Visual Feedback
+if (btnCopyLink) {
+    btnCopyLink.addEventListener('click', async () => {
+        try {
+            await navigator.clipboard.writeText(window.location.href);
+            
+            // Visual success feedback
+            btnCopyLink.classList.add('success');
+            const btnText = btnCopyLink.querySelector('.btn-text');
+            
+            const originalText = btnText.textContent;
+            btnText.textContent = '¡Enlace Copiado!';
+            
+            const originalIconHTML = btnCopyLink.querySelector('svg')?.outerHTML || '';
+            const checkIconHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check btn-icon"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+            
+            const iconElement = btnCopyLink.querySelector('svg') || btnCopyLink.querySelector('i');
+            if (iconElement) {
+                iconElement.outerHTML = checkIconHTML;
+            }
+            
+            // Fire beautiful share-themed confetti
+            fireShareConfetti();
+            
+            setTimeout(() => {
+                btnCopyLink.classList.remove('success');
+                btnText.textContent = originalText;
+                const newIconElement = btnCopyLink.querySelector('svg');
+                if (newIconElement && originalIconHTML) {
+                    newIconElement.outerHTML = originalIconHTML;
+                }
+            }, 2000);
+            
+        } catch (err) {
+            console.error('Error al copiar el enlace: ', err);
+            alert('No se pudo copiar el enlace automáticamente. Copia la URL de tu navegador.');
+        }
+    });
+}
+
+// Special Sharing Confetti Burst
+function fireShareConfetti() {
+    confetti({
+        particleCount: 40,
+        spread: 60,
+        origin: { x: 0.3, y: 0.6 },
+        colors: ['#ff3e81', '#ff9a3e', '#10b981']
+    });
+    confetti({
+        particleCount: 40,
+        spread: 60,
+        origin: { x: 0.7, y: 0.6 },
+        colors: ['#ff3e81', '#ff9a3e', '#10b981']
+    });
+}
+
 // Initial Render
 loadData();

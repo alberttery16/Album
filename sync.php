@@ -36,6 +36,7 @@ foreach ($files as $file) {
 // 3. Renombrar archivos que no siguen el patrón
 foreach ($files as $file) {
     if ($file === '.' || $file === '..' || strpos($file, '.') === 0) continue;
+    if ($file === 'QR_Album.png') continue;
     
     $oldPath = $dir . $file;
     $ext = strtolower(pathinfo($oldPath, PATHINFO_EXTENSION));
@@ -77,6 +78,7 @@ $newData = [];
 
 foreach ($files as $file) {
     if ($file === '.' || $file === '..' || strpos($file, '.') === 0) continue;
+    if ($file === 'QR_Album.png') continue;
     
     $path = $dir . $file;
     $ext = strtolower(pathinfo($path, PATHINFO_EXTENSION));

@@ -63,8 +63,11 @@
         <p>PÁGINA REALIZADA POR ALBERTTERY16. TODOS LOS DERECHOS RESERVADOS.</p>
         <div id="qr-container" class="qr-section">
             <p>Escanea para compartir</p>
-            <div class="qr-placeholder">
-                <i data-lucide="qr-code" size="48"></i>
+            <div class="qr-wrapper" id="qr-footer-trigger">
+                <img src="assets/QR_Album.png" alt="Código QR del Álbum" class="qr-image">
+                <div class="qr-overlay">
+                    <i data-lucide="maximize-2" class="qr-zoom-icon"></i>
+                </div>
             </div>
         </div>
     </footer>
@@ -75,6 +78,34 @@
         <div class="lightbox-content">
             <div id="lightbox-media"></div>
             <p id="lightbox-caption"></p>
+        </div>
+    </div>
+
+    <!-- Share Modal -->
+    <div id="share-modal" class="share-modal">
+        <span class="close-share-modal" id="close-share">&times;</span>
+        <div class="share-modal-content">
+            <div class="share-card">
+                <div class="share-header">
+                    <h2>Compartir Álbum</h2>
+                    <p>Comparte la experiencia de superdeportivos</p>
+                </div>
+                
+                <div class="share-qr-container">
+                    <img src="assets/QR_Album.png" alt="QR del Álbum" class="share-qr-img">
+                </div>
+                
+                <div class="share-actions">
+                    <button id="btn-copy-link" class="btn-share-action copy-btn">
+                        <i data-lucide="copy" class="btn-icon"></i>
+                        <span class="btn-text">Copiar Enlace</span>
+                    </button>
+                    <a href="assets/QR_Album.png" download="QR_Album_Garage_dElite.png" id="btn-download-qr" class="btn-share-action download-btn">
+                        <i data-lucide="download" class="btn-icon"></i>
+                        <span class="btn-text">Descargar QR</span>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 
