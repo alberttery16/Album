@@ -276,6 +276,49 @@ nav {
     color: var(--text-secondary);
 }
 
+.footer-contacts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    margin: 2rem 0;
+}
+
+.footer-contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-contact-link i {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s ease;
+}
+
+.footer-contact-link:hover {
+    color: var(--text-primary);
+    border-color: var(--accent);
+    background: rgba(255, 62, 129, 0.05);
+    box-shadow: 0 0 20px rgba(255, 62, 129, 0.2);
+    transform: translateY(-2px);
+}
+
+.footer-contact-link:hover i {
+    transform: scale(1.15) rotate(-5deg);
+    color: var(--accent);
+}
+
+
 .qr-section {
     margin-top: 2rem;
     display: flex;
